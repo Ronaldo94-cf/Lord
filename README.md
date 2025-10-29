@@ -1,4 +1,4 @@
-Olá ! Eu sou Cesar Ronaldo 
+Olá ! Eu sou Cesar Ronaldo
 💻Há mais de 13 anos como Técnico em Informática ( Hardware )
 📘Iniciante na área de Análise desenvolvimento de Sistemas
 👨‍💻Abaixo algumas futuras linguagens a aprender e minhas redes sociais
