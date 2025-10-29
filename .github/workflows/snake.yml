@@ -1,0 +1,42 @@
+name: Generate Snake Animation
+
+on:
+  # Atualiza todos os dias às 23:00 UTC (20h no horário de Brasília)
+  schedule:
+    - cron: "0 23 * * *"
+
+  # Permite executar manualmente pelo GitHub Actions
+  workflow_dispatch:
+
+  # Executa quando há mudanças na branch principal
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clona seu repositório
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      # Gera a animação da cobra
+      - name: Gerar Snake 🐍
+        uses: Platane/snk@v3
+        with:
+          github_user_name: Ronaldo94-cf
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      # Publica o resultado no branch "output"
+      - name: Publicar no branch output 📤
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
